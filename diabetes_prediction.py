@@ -8,14 +8,14 @@ model = joblib.load('model_diabetes.pkl')
 st.title("Prediksi Diabetes")
 
 # Input user
-pregnancies = st.number_input("Pregnancies")
-glucose = st.number_input("Glucose")
-blood_pressure = st.number_input("Blood Pressure")
-skin_thickness = st.number_input("Skin Thickness")
-insulin = st.number_input("Insulin")
-bmi = st.number_input("BMI")
-dpf = st.number_input("Diabetes Pedigree Function")
-age = st.number_input("Age")
+pregnancies = st.number_input("Pregnancies", min_value=0, step=1)
+glucose = st.number_input("Glucose", min_value=0.0)
+blood_pressure = st.number_input("Blood Pressure", min_value=0.0)
+skin_thickness = st.number_input("Skin Thickness", min_value=0.0)
+insulin = st.number_input("Insulin", min_value=0.0)
+bmi = st.number_input("BMI", min_value=0.0, format="%.2f")
+dpf = st.number_input("Diabetes Pedigree Function", min_value=0.0, format="%.3f")
+age = st.number_input("Age", min_value=0, step=1)
 
 # Prediksi
 if st.button("Prediksi"):
