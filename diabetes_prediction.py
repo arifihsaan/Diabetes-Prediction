@@ -5,7 +5,7 @@ import numpy as np
 # Load model
 model = joblib.load('model_diabetes.pkl')
 
-st.title("Prediksi Diabetes")
+st.title("Diabetes Prediction")
 
 # Input user
 pregnancies = st.number_input("Pregnancies", min_value=0, step=1)
@@ -18,13 +18,13 @@ dpf = st.number_input("Diabetes Pedigree Function", min_value=0.0, format="%.3f"
 age = st.number_input("Age", min_value=0, step=1)
 
 # Prediksi
-if st.button("Prediksi"):
+if st.button("Predict"):
     input_data = np.array([[pregnancies, glucose, blood_pressure,
                             skin_thickness, insulin, bmi, dpf, age]])
     
     prediction = model.predict(input_data)
     
     if prediction[0] == 1:
-        st.error("Terindikasi Diabetes")
+        st.error("Diabetes")
     else:
-        st.success("Tidak Diabetes")
+        st.success("Not Diabetes")
